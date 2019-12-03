@@ -15,10 +15,9 @@
   {{ $pageIDSuffix := slice "a" "b" "c" "d" "e" "f" "g" }}
 
   {{ range .Pages.ByParam "runbook_weight" }}
-    {{- $pageURL := delimit (slice "<a href=\"#" (anchorize .Title) "\">" .Title "</a>") "" -}}
+    {{- $pageURL := delimit (slice `<p><span class="runbook-page-title"></span><a href="#` (anchorize .Title) `-` (index $pageIDSuffix $pageCount) `">` .Title `</a></p>`) "" -}}
+    {{- safeHTML $pageURL -}}
     {{- $toc := .Page.TableOfContents -}}
-    {{ $replacement := delimit (slice "<ul><li>" $pageURL "<ul>") "" }}
-    {{- $toc := replaceRE `<ul>\n<li>\n<ul>` $replacement $toc -}}
     {{ $replacement := delimit (slice `$1-` (index $pageIDSuffix $pageCount) `">`) "" }}
     {{ $toc := replaceRE `(<a href="#[\w\-]+)\">` $replacement $toc }}
     {{ $pageCount = add $pageCount 1 }}

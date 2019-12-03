@@ -22,7 +22,7 @@ managing and maintaining a healthy configuration and ensuring that
 important data can be restored, if required.
 
 
-## chef-server-ctl
+# chef-server-ctl
 
 For the majority of use cases, `chef-server-ctl backup` is the
 recommended way to take backups of the Chef Infra Server. Use the
@@ -30,7 +30,7 @@ following commands for managing backups of Chef Infra Server data, and
 for restoring those backups.
 
 
-### backup
+## backup
 
 {{% ctl_chef_server_backup %}}
 
@@ -43,7 +43,7 @@ for restoring those backups.
 {{% ctl_chef_server_backup_syntax %}}
 
 
-### restore
+## restore
 
 {{% ctl_chef_server_restore %}}
 
@@ -62,7 +62,7 @@ $ chef-server-ctl restore /path/to/tar/archive.tar.gz
 ```
 
 
-## Backup and restore a Chef Backend install
+# Backup and restore a Chef Backend install
 
 In a disaster recovery scenario, the backup and restore processes allow
 you to restore a data backup into a newly built cluster. It is not
@@ -70,7 +70,7 @@ intended for the recovery of an individual machine in the chef-backend
 cluster or for a point-in-time rollback of an existing cluster.
 
 
-### Backup
+## Backup
 
 Restoring your data in the case of an emergency depends on having
 previously made backups of:
@@ -86,7 +86,7 @@ To make backups for future use in disaster scenarios:
     storage location.
 
 
-### Restore
+## Restore
 
 To restore a Chef Backend-based Chef Infra Server cluster:
 
@@ -124,7 +124,7 @@ To restore a Chef Backend-based Chef Infra Server cluster:
     ```
 
 
-### Verify
+## Verify
 
 We recommend periodically verifying your backup by restoring a single
 Chef Backend node, a single Chef Infra Server node, and ensuring that

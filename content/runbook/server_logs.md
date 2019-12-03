@@ -23,7 +23,7 @@ sub-directory in which service-specific logs are located, typically
 found in `/var/log/opscode/service_name`.
 
 
-## View Log Files
+# View Log Files
 
 The Chef Infra Server has built-in support for easily tailing the logs
 that are generated. To view all the logs being generated on the Chef
@@ -49,7 +49,7 @@ $ tail -50f /var/log/chef-server/opscode-chef/current
 ```
 
 
-### tail Log Files
+# tail Log Files
 
 {{% ctl_chef_server_tail %}}
 
@@ -61,7 +61,7 @@ $ tail -50f /var/log/opscode/opscode-chef/current
 ```
 
 
-## Supervisor
+# Supervisor
 
 Supervisor logs are created and managed directly by the service
 supervisor, and are automatically rotated when the current log file
@@ -153,14 +153,14 @@ amounts of time spent interacting with other services:
 -   `solr_time` (the time spent talking to the **opscode-solr** service)
 
 
-## Application
+# Application
 
 Application logs are created by the services directly, and may require
 log rotation policies to be applied based on organizational goals and
 the platform(s) on which the services are running.
 
 
-### nginx
+# nginx
 
 The `nginx` service creates both supervisor and administrator logs. The
 administrator logs contain both access and error logs for each virtual
@@ -228,7 +228,7 @@ require external log rotation.
 
 {{% server_services_nginx_tail %}}
 
-### Read Log Files
+# Read Log Files
 
 The **nginx** access log format is as follows:
 

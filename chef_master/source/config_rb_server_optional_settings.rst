@@ -152,7 +152,7 @@ This configuration file has the following settings for ``bookshelf``:
    Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the **bookshelf** service and the behavior of load balancers and proxies in-between Chef Infra Client and the Chef Infra Server. Default value: ``true``.
 
 ``bookshelf['sql_connection_user']``
-   The PostgreSQL user name in ``'<username@hostname>'`` format (e.g. ``'bookshelf@my_postgresql.postgres.database.azure.com'``) used for making PostgreSQL queries, where ``username`` would normally equal the value of ``bookshelf['sql_user']`` (default ``'bookshelf'``). Default value: ``nil``.
+   The PostgreSQL user name in ``'username@hostname'`` format (e.g. ``'bookshelf@my_postgresql.postgres.database.azure.com'``), where ``username`` would normally equal the value of ``bookshelf['sql_user']`` (default: ``'bookshelf'``). This setting is **required** in an external Azure PostgreSQL "database as a service" configuration. If set to ``nil``, non-Azure is assumed and the PostgreSQL connection will be made using the value specified in ``bookshelf['sql_user']``. Default value: ``nil``.
 
 ``bookshelf['vip']``
    The virtual IP address. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_overview.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: ``127.0.0.1``.
@@ -666,8 +666,8 @@ This configuration file has the following settings for ``oc_bifrost``:
 ``oc_bifrost['port']``
    The port on which the service is to listen. Default value: ``9463``.
 
-  ``oc_bifrost['sql_connection_user']``
-   The PostgreSQL user name in ``'<username@hostname>'`` format (e.g. ``'bifrost@my_postgresql.postgres.database.azure.com'``) used for making PostgreSQL queries, where ``username`` would normally equal the value of ``oc_bifrost['sql_user']`` (default ``'bifrost'``). Default value: ``nil``.
+``oc_bifrost['sql_connection_user']``
+   The PostgreSQL user name in ``'username@hostname'`` format (e.g. ``'bifrost@my_postgresql.postgres.database.azure.com'``), where ``username`` would normally equal the value of ``oc_bifrost['sql_user']`` (default: ``'bifrost'``). This setting is **required** in an external Azure PostgreSQL "database as a service" configuration. If set to ``nil``, non-Azure is assumed and the PostgreSQL connection will be made using the value specified in ``oc_bifrost['sql_user']``. Default value: ``nil``.
 
 ``oc_bifrost['sql_password']``
    The password for the ``sql_user``. Default value: **generated**.
@@ -816,8 +816,8 @@ This configuration file has the following settings for ``oc-id``:
    The port on which the service is to listen. Default value: ``9090``.
 
 ``oc_id['sql_connection_user']``
-   The PostgreSQL user name in ``'<username@hostname>'`` format (e.g. ``'oc_id@my_postgresql.postgres.database.azure.com'``) used for making PostgreSQL queries, where ``username`` would normally equal the value of ``oc_id['sql_user']`` (default ``'oc_id'``). Default value: ``nil``.
-     
+   The PostgreSQL user name in ``'username@hostname'`` format (e.g. ``'oc_id@my_postgresql.postgres.database.azure.com'``), where ``username`` would normally equal the value of ``oc_id['sql_user']`` (default: ``'od_id'``). This setting is **required** in an external Azure PostgreSQL "database as a service" configuration. If set to ``nil``, non-Azure is assumed and the PostgreSQL connection will be made using the value specified in ``oc_id['sql_user']``. Default value: ``nil``.
+
 ``oc_id['sql_database']``
    The name of the database. Default value: ``oc_id``.
 
@@ -1033,7 +1033,7 @@ This configuration file has the following settings for ``opscode-erchef``:
    The amount of time (in seconds) before connections to the server expire. If node bootstraps are timing out, increase this setting. Default value: ``28800``.
 
 ``opscode_erchef['sql_connection_user']``
-   The PostgreSQL user name in ``'<username@hostname>'`` format (e.g. ``'opscode_chef@my_postgresql.postgres.database.azure.com'``) used for making PostgreSQL queries, where ``username`` would normally equal the value of ``opscode-erchef['sql_user']`` (default ``'opscode_chef'``). Default value: ``nil``.
+   The PostgreSQL user name in ``'username@hostname'`` format (e.g. ``'opscode_chef@my_postgresql.postgres.database.azure.com'``), where ``username`` would normally equal the value of ``opscode-erchef['sql_user']`` (default: ``'opscode_chef'``). This setting is **required** in an external Azure PostgreSQL "database as a service" configuration. If set to ``nil``, non-Azure is assumed and the PostgreSQL connection will be made using the value specified in ``opscode_erchef['sql_user']``.Default value: ``nil``.
 
 ``opscode_erchef['strict_search_result_acls']``
    .. tag settings_strict_search_result_acls
@@ -1220,7 +1220,7 @@ This configuration file has the following settings for ``postgresql``:
    The directory in which on-disk data is stored. The default value is the recommended value. Default value: ``/var/opt/opscode/postgresql/#{node['private_chef']['postgresql']['version']}/data``.
 
 ``postgresql['db_connection_superuser']``
-   The PostgreSQL superuser name in ``'<username@hostname>'`` format (e.g. ``'opscode_pgsql@my_postgresql.postgres.database.azure.com'``) used for creating PostgreSQL connections, where ``username`` would normally equal the value specified in ``postgresql['db_superuser']``. Default value: ``nil``.
+   The PostgreSQL superuser name in ``'username@hostname'`` format (e.g. ``'opscode_pgsql@my_postgresql.postgres.database.azure.com'``), where ``username`` would normally equal the value of ``postgresql['db_superuser']`` with any dashes replaced by underscores. This setting is **required** in an external Azure PostgreSQL "database as a service" configuration. If set to ``nil``, non-Azure is assumed and the PostgreSQL connection will be made using the value specified in ``postgresql['db_superuser']``. Default value: ``nil``.
 
 ``postgresql['db_superuser']``
    Default value: ``opscode-pgsql``. If ``username`` is set, set ``db_superuser`` to the same value.

@@ -325,17 +325,17 @@ An example ``chef-server.rb`` configuration for External PostgreSQL on Microsoft
 
 .. code-block:: ruby
 
-     topology 'standalone'
-     postgresql['external']=true
-     postgresql['vip']='my_postgresql.postgres.database.azure.com'
-     postgresql['db_superuser']='opscode_pgsql'
-     postgresql['db_superuser_password']='My_postgres_password1!'
-     postgresql['db_connection_superuser']='opscode_pgsql@my_postgresql.postgres.database.azure.com'
-     # postgresql['sslmode']='require' # required if 'Enforce SSL connection' is enabled on Azure PostgreSQL
-     bookshelf['sql_connection_user']='bookshelf@my_postgresql.postgres.database.azure.com'
-     oc_bifrost['sql_connection_user']='bifrost@my_postgresql.postgres.database.azure.com'
-     oc_id['sql_connection_user']='oc_id@my_postgresql.postgres.database.azure.com'
-     opscode_erchef['sql_connection_user']='opscode_chef@my_postgresql.postgres.database.azure.com'
+   topology 'standalone'
+   postgresql['external']=true
+   postgresql['vip']='my_postgresql.postgres.database.azure.com'
+   postgresql['db_superuser']='opscode_pgsql'
+   postgresql['db_superuser_password']='My_postgres_password1!'
+   postgresql['db_connection_superuser']='opscode_pgsql@my_postgresql.postgres.database.azure.com'
+   # postgresql['sslmode']='require' # required if 'Enforce SSL connection' is enabled on Azure PostgreSQL
+   bookshelf['sql_connection_user']='bookshelf@my_postgresql.postgres.database.azure.com'
+   oc_bifrost['sql_connection_user']='bifrost@my_postgresql.postgres.database.azure.com'
+   oc_id['sql_connection_user']='oc_id@my_postgresql.postgres.database.azure.com'
+   opscode_erchef['sql_connection_user']='opscode_chef@my_postgresql.postgres.database.azure.com'
 
 .. note:: See the list of `error messages that may be present </errors.html#external-postgresql>`_ when configuring the Chef Infra Server to use a remote PostgreSQL server.
 

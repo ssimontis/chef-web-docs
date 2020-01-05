@@ -551,20 +551,41 @@ Options
 
 This subcommand has the following options:
 
+``--chef-license ACCEPTANCE``
+   Accept the license for this product and any contained products)'accept', 'accept-no-persist', or 'accept-silent')
+   
+``-C``, ``--copyright COPYRIGHT``
+   Name of the copyright holder - defaults to 'The Authors'
+   
+``-m``, ``--email EMAIL``
+   Email address of the author - defaults to 'you@example.com`
+   
+``-a``, ``--generator-arg KEY=VALUE``
+   Use to set arbitrary attribute KEY to VALUE in the code_generator cookbook
+
 ``-h``, ``--help``
    Show help for the command.
+   
+``-I``, ``--license LICENSE``
+   all_rights, apachev2, mit, gplv2, gplv3 - defaults to all_rights
 
 ``-p``, ``--policy-only``
-   Create a repository that does not store cookbook files, only Policyfile files.
+   Create a repository to store Policyfiles only, not cookbooks.
 
 ``-P``, ``--policy``
-   Use Policyfile instead of Berkshelf.
+   Use Policyfile instead of roles and environments.
 
 ``-r``, ``--roles``
-   Create directories for ``/roles`` and ``/environments`` instead of creating directories for Policyfile.
+   Create directories for ``/roles`` and ``/environments`` instead of using Policyfiles.
 
+``-V``, ``--verbose``
+   Show detailed output from the generator
+   
 ``-v``, ``--version``
    The Chef Infra Client version.
+   
+``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook``
+   Use GENERATOR_COOKBOOK_PATH for the code_generator cookbook
 
 .. end_tag
 
